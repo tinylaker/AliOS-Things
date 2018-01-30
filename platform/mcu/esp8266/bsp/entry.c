@@ -46,11 +46,14 @@ void user_init(void)
     static char s_buf[64];
     extern int32_t hal_uart_init(uart_dev_t *uart);
 
+    user_conn_test_init();
+
     //hal_uart_init(&uart_0);
 
-    aos_kernel_init(&kinit);
+    //aos_kernel_init(&kinit);
 }
 
+#ifndef CONFIG_ESP_LWIP
 void dhcps_start(void)
 {
 
@@ -86,6 +89,10 @@ void ethernetif_input(void)
 
 }
 
+char *hostname;
+char *default_hostname;
+#endif
+
 void user_fatal_exception_handler(void)
 {
     ets_printf("user_fatal_exception_handler\n");
@@ -93,5 +100,7 @@ void user_fatal_exception_handler(void)
     {}
 }
 
-char *hostname;
-char *default_hostname;
+void wifi_nmi_post_soft_isr(void)
+{
+    PendSV(2);
+}
