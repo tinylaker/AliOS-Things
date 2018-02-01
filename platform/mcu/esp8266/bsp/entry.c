@@ -43,6 +43,7 @@ static kinit_t kinit = {
     .cli_enable = 1
 };
 
+extern hal_wifi_module_t aos_wifi_esp8266;
 void user_init(void)
 {
     static char s_buf[64];
@@ -51,6 +52,8 @@ void user_init(void)
     //user_conn_test_init();
 
     hal_uart_init(&uart_0);
+
+    hal_wifi_register_module(&aos_wifi_esp8266);
 
     aos_kernel_init(&kinit);
 }
