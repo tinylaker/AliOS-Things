@@ -10,8 +10,10 @@ ifeq ($(HOST_ARCH), linux)
 LIB_PATH := linux
 else ifeq ($(HOST_ARCH), ARM968E-S)
 LIB_PATH := arm968es
-else ifeq ($(HOST_ARCH), xtensa)
+else ifeq ($(HOST_MCU_FAMILY), esp32)
 LIB_PATH := xtensa
+else ifeq ($(HOST_MCU_FAMILY), esp8266)
+LIB_PATH := lx106
 else
 $(error "not find correct platform!")
 endif

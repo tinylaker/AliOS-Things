@@ -12,6 +12,7 @@
 #ifdef WITH_LWIP
 extern void tcp_init(void);
 extern void udp_init(void);
+extern void srand(unsigned int seed);
 #endif
 
 #include "netmgr.h"

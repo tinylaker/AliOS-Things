@@ -1202,9 +1202,10 @@ static inline int os_firmware_upgrade(void)
  * @see None.
  * @note None.
  */
+#ifndef os_printf
 #define os_printf(fmt, args ...) \
     platform_printf(fmt, ## args)
-
+#endif
 /** @} */// end of os_io
 
 /*************************************** wifi module Interface ***************************************/

@@ -18,6 +18,16 @@ GLOBAL_LDFLAGS      +=
 GLOBAL_DEFINES      += CONFIG_ALICRYPTO
 GLOBAL_CFLAGS       +=
 
+ifeq ($(HOST_ARCH), xtensa)
+ifeq ($(HOST_MCU_FAMILY), esp32)
+LIB_PATH := xtensa
+else ifeq ($(HOST_MCU_FAMILY), esp8266)
+LIB_PATH := lx106
+endif
+else
+LIB_PATH := $(HOST_ARCH)
+endif
+
 ifeq ($(COMPILER),armcc)
 $(NAME)_PREBUILT_LIBRARY := lib/$(HOST_ARCH)/KEIL/libmbedcrypto.lib  \
 		lib/$(HOST_ARCH)/KEIL/libalicrypto.lib
@@ -25,8 +35,8 @@ else ifeq ($(COMPILER),iar)
 $(NAME)_PREBUILT_LIBRARY := lib/$(HOST_ARCH)/IAR/libmbedcrytpo.a  \
                 lib/$(HOST_ARCH)/IAR/libalicrypto.a
 else
-$(NAME)_PREBUILT_LIBRARY := lib/$(HOST_ARCH)/libmbedcrypto.a  \
-                lib/$(HOST_ARCH)/libalicrypto.a
+$(NAME)_PREBUILT_LIBRARY := lib/$(LIB_PATH)/libmbedcrypto.a  \
+                lib/$(LIB_PATH)/libalicrypto.a
 endif
 				
 ifeq ($(ALICRYPTO_TEST), yes)

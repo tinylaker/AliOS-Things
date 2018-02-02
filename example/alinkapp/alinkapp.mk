@@ -21,8 +21,12 @@ gateway ?= 0
 else
 ifneq (,$(filter stm32f4xx,$(HOST_MCU_FAMILY)))
 gateway ?= 0
+else 
+ifneq (,$(filter esp8266,$(HOST_MCU_FAMILY)))
+gateway ?=0
 else
 gateway ?= 1
+endif
 endif
 endif
 
