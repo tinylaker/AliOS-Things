@@ -48,11 +48,12 @@ static int  ota_gen_report_msg(char *buf, size_t buf_len, uint32_t id, int progr
 static bool ota_check_progress(int progress);
 
 static const char *to_capital_letter(char *value, int len)
-{
+{   
     if (value == NULL && len <= 0) {
         return NULL;
     }
-    for (int i = 0; i < len; i++) {
+    int i;
+    for (i = 0; i < len; i++) {
         if (*(value + i) >= 'a' && *(value + i) <= 'z') {
             *(value + i) -= 'a' - 'A';
         }
