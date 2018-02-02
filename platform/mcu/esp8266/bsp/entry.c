@@ -49,13 +49,18 @@ void user_init(void)
     static char s_buf[64];
     extern int32_t hal_uart_init(uart_dev_t *uart);
 
-    //user_conn_test_init();
+    user_conn_test_init();
 
     hal_uart_init(&uart_0);
 
+    #if 1 //only init cli
+    aos_cli_init();
+    #else
+    aos_kernel_init(&kinit);
+    #endif
+    
     hal_wifi_register_module(&aos_wifi_esp8266);
 
-    aos_kernel_init(&kinit);
 }
 
 #ifndef CONFIG_ESP_LWIP
