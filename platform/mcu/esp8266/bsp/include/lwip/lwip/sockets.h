@@ -36,14 +36,10 @@
 
 #include "lwip/opt.h"
 
+#include "sys/types.h"
 #if LWIP_SOCKET /* don't build if not configured for use in lwipopts.h */
 
 #include <stddef.h> /* for size_t */
-
-#ifndef LWIP_PRIVATE_FD_SET
-//#include <lwip/select.h>
-#include <sys/types.h>
-#endif
 
 #include "lwip/ip_addr.h"
 #include "lwip/inet.h"

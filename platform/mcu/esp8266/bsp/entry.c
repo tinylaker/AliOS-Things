@@ -43,24 +43,26 @@ static kinit_t kinit = {
     .cli_enable = 1
 };
 
+static void app_entry(void *arg)
+{
+    aos_kernel_init(&kinit);
+}
+
 extern hal_wifi_module_t aos_wifi_esp8266;
 void user_init(void)
 {
-    static char s_buf[64];
+    int ret = 0;
     extern int32_t hal_uart_init(uart_dev_t *uart);
-
-    user_conn_test_init();
 
     hal_uart_init(&uart_0);
 
-    #if 1 //only init cli
-    aos_cli_init();
-    #else
-    aos_kernel_init(&kinit);
-    #endif
-    
     hal_wifi_register_module(&aos_wifi_esp8266);
 
+    ret = hal_wifi_init();
+    if (ret){
+        printf("waring: wifi init fail ret is %d \r\n", ret);
+    }
+    aos_task_new("main", app_entry, 0, 8192);
 }
 
 #ifndef CONFIG_ESP_LWIP
