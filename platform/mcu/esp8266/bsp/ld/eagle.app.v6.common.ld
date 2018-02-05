@@ -124,6 +124,9 @@ SECTIONS
     *vfs.a:(.rodata.* .rodata)
     *yloop.a:(.rodata.* .rodata)
     *framework.a:(.rodata.* .rodata)
+	*cli.a:(.rodata.* .rodata)
+	*helloworld.a:(.rodata.* .rodata)
+	*xtensa.a:port.o(.rodata.* .rodata)
     _irom0_text_end = ABSOLUTE(.);
   } >irom0_0_seg :irom0_0_phdr
 
