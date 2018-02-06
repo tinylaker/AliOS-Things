@@ -27,7 +27,7 @@ hr_timer_t soc_hr_hw_cnt_get(void)
 extern uint8_t _heap_start, _heap_size;
 const k_mm_region_t g_mm_region[] = {
     {&_heap_start, (uint32_t)&_heap_size},
-    {IRAM_AS_HEAP_ADDR, IRAM_AS_HEAP_LEN}
+    //{IRAM_AS_HEAP_ADDR, IRAM_AS_HEAP_LEN}
 };
 int g_region_num  = sizeof(g_mm_region)/sizeof(k_mm_region_t);
 
