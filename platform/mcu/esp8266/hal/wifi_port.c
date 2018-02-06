@@ -347,7 +347,8 @@ static int wifi_init(hal_wifi_module_t *m)
 static void wifi_get_mac_addr(hal_wifi_module_t *m, uint8_t *mac)
 {
     (void)m;
-    printf("wifi_get_mac_addr!!\n");
+    if (!mac) {printf("%s invalid argument.", __func__); return;}
+    wifi_get_macaddr(STATION_IF, mac);
 };
 
 static int wifi_start(hal_wifi_module_t *m, hal_wifi_init_type_t *init_para)
