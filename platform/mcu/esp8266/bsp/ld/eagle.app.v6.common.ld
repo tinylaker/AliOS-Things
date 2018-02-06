@@ -114,7 +114,8 @@ SECTIONS
     *libopenssl.a:(.rodata.* .rodata)
     *libplatforms.a:(.rodata.* .rodata)
     *libcomponents.a:(.rodata.* .rodata)
-	
+	*libywss.a:(.rodata.* .rodata)
+
     *(.irom0.literal .irom.literal .irom.text.literal .irom0.text .irom.text)
     *(.literal.* .text.*)
 	
