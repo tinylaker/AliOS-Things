@@ -1,7 +1,7 @@
 NAME := alinkapp
 
 $(NAME)_SOURCES := alink_sample.c
-$(NAME)_COMPONENTS := log protocol.alink  cli fota netmgr framework.common
+$(NAME)_COMPONENTS := log protocol.alink fota netmgr framework.common
 
 ifneq ($(ywss),0)
 $(NAME)_COMPONENTS += ywss
