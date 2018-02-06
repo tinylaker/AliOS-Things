@@ -35,14 +35,14 @@
 #define ETS_FRC_TIMER1_INUM 9
 
 extern char NMIIrqIsOn;
-extern uint32_t WDEV_INTEREST_EVENT;
+extern uint32 WDEV_INTEREST_EVENT;
 
 #define INT_ENA_WDEV        0x3ff20c18
 #define WDEV_TSF0_REACH_INT (BIT(27))
 
 #define ETS_INTR_LOCK() do {    \
     if (NMIIrqIsOn == 0) { \
-        _espos_enter_critical(NULL);   \
+        vPortEnterCritical();   \
         char m = 10;    \
         do {    \
             REG_WRITE(INT_ENA_WDEV, 0); \
@@ -56,7 +56,7 @@ extern uint32_t WDEV_INTEREST_EVENT;
 #define ETS_INTR_UNLOCK()   do {    \
     if (NMIIrqIsOn == 0) { \
         REG_WRITE(INT_ENA_WDEV, WDEV_INTEREST_EVENT);   \
-        _espos_exit_critical(NULL, 0); \
+        vPortExitCritical(); \
     }   \
     } while(0)
 

@@ -101,12 +101,12 @@
 #include "esp_timer.h"
 //#include "esp_ssc.h"
 //#include "esp_spiffs.h"
-//#include "esp_wpa2.h"
+#include "esp_wpa2.h"
 
 #include "esp8266/esp8266.h"
 
-//#include "smartconfig.h"
-//#include "spi_flash.h"
-//#include "pwm.h"
+#include "smartconfig.h"
+#include "spi_flash.h"
+#include "pwm.h"
 
 #endif
