@@ -114,8 +114,10 @@ SECTIONS
     *libopenssl.a:(.rodata.* .rodata)
     *libplatforms.a:(.rodata.* .rodata)
     *libcomponents.a:(.rodata.* .rodata)
+	
     *(.irom0.literal .irom.literal .irom.text.literal .irom0.text .irom.text)
     *(.literal.* .text.*)
+	
     *rhino.a:(.rodata.* .rodata)
     *board_esp8266.a:(.rodata.* .rodata)
     *kernel_init.a:(.rodata.* .rodata)
@@ -127,6 +129,25 @@ SECTIONS
 	*cli.a:(.rodata.* .rodata)
 	*helloworld.a:(.rodata.* .rodata)
 	*xtensa.a:port.o(.rodata.* .rodata)
+	
+	*mbedtls.a:(.rodata.* .rodata)
+	*alinkapp.a:(.rodata.* .rodata)
+	*base64.a:(.rodata.* .rodata)
+	*cjson.a:(.rodata.* .rodata)
+	*cloud.a:(.rodata.* .rodata)
+	*wsf.a:(.rodata.* .rodata)
+	*digest_algorithm.a:(.rodata.* .rodata)
+	*fota.a:(.rodata.* .rodata)
+	*fota_download.a:(.rodata.* .rodata)
+	*download_http.a:(.rodata.* .rodata)
+	*socket_stand.a:(.rodata.* .rodata)
+	*fota_platform.a:(.rodata.* .rodata)
+	*fota_alink_transport.a:(.rodata.* .rodata)
+	*mbedtls.a:(.rodata.* .rodata)
+	*netmgr.a:(.rodata.* .rodata)
+	*alink.a:(.rodata.* .rodata)
+	*libalicrypto.a:(.rodata.* .rodata)
+	*libmbedcrypto.a:(.rodata.* .rodata)
     _irom0_text_end = ABSOLUTE(.);
   } >irom0_0_seg :irom0_0_phdr
 
