@@ -24,6 +24,8 @@ _xt_ext_panic:
     #endif
     s32i    a12, sp, XT_STK_A12             /* _xt_context_save requires A12- */
     s32i    a13, sp, XT_STK_A13             /* A13 to have already been saved */
+    s32i    a14, sp, XT_STK_A14             
+    s32i    a15, sp, XT_STK_A15             
     call0   _xt_context_save
 
     /* Save exc cause and vaddr into exception frame */
