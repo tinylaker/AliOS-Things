@@ -55,9 +55,14 @@ GLOBAL_CFLAGS    += -DXT_USE_THREAD_SAFE_CLIB=0
 $(NAME)_SOURCES  := bsp/entry.c
 $(NAME)_SOURCES  += bsp/syscall.c
 $(NAME)_SOURCES  += bsp/conn.c
+$(NAME)_SOURCES  += bsp/key.c
 
 $(NAME)_SOURCES  += bsp/driver/interrupt.c
 $(NAME)_SOURCES  += bsp/driver/uart.c
+$(NAME)_SOURCES  += bsp/driver/gpio.c
+$(NAME)_SOURCES  += bsp/driver/hw_timer.c
+$(NAME)_SOURCES  += bsp/driver/i2c_master.c
+$(NAME)_SOURCES  += bsp/driver/spi_interface.c
 
 $(NAME)_SOURCES  += hal/uart.c
 $(NAME)_SOURCES  += hal/flash.c
