@@ -810,7 +810,7 @@ int application_start(int argc, char *argv[])
 #endif
 
         netmgr_init();
-        netmgr_start(auto_netmgr);
+        netmgr_start(true/*auto_netmgr*/);
     }
 
 #if defined(CONFIG_AOS_DDA) && !defined(AOS_AT_ADAPTER)

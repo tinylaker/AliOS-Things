@@ -580,6 +580,7 @@ int netmgr_init(void)
 #else
     add_autoconfig_plugin(&g_def_smartconfig);
 #endif
+    clear_wifi_ssid();
     hal_wifi_install_event(g_netmgr_cxt.wifi_hal_mod, &g_wifi_hal_event);
     read_persistent_conf();
 
