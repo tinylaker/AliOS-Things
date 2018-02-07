@@ -6,6 +6,7 @@ PHDRS
   dport0_0_phdr PT_LOAD;
   dram0_0_phdr PT_LOAD;
   dram0_0_bss_phdr PT_LOAD;
+  dram1_0_bss_phdr PT_LOAD;
   iram1_0_phdr PT_LOAD;
   irom0_0_phdr PT_LOAD;
 }
@@ -105,6 +106,20 @@ SECTIONS
     _etext = .;
   } >iram1_0_seg :iram1_0_phdr
 
+  .iram.bss 0x40108000 (NOLOAD):
+  {
+	*wsf.a:(.bss.wsf_downlink_buff)
+	*wsf.a:(.bss.wsf_uplink_buff)
+	*libalicrypto.a: (.bss.RT3)
+	*libalicrypto.a: (.bss.RT2)
+	*libalicrypto.a: (.bss.RT1)
+	*libalicrypto.a: (.bss.RT0)
+	*libalicrypto.a: (.bss.FT3)
+	*libalicrypto.a: (.bss.FT2)
+	*libalicrypto.a: (.bss.FT1)
+	*libalicrypto.a: (.bss.FT0)
+  } >dram1_0_seg :dram1_0_bss_phdr
+  
   .irom0.text : ALIGN(4)
   {
     _irom0_text_start = ABSOLUTE(.);
