@@ -53,6 +53,9 @@ void user_init(void)
 {
     int ret = 0;
     extern int32_t hal_uart_init(uart_dev_t *uart);
+    extern void key_gpio_init(void);
+
+    key_gpio_init();
 
     hal_uart_init(&uart_0);
 
