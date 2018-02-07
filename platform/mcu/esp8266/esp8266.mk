@@ -53,6 +53,7 @@ $(NAME)_PREBUILT_LIBRARY += bsp/lib/liblwip.a
 
 GLOBAL_CFLAGS    += -DXT_USE_THREAD_SAFE_CLIB=0
 $(NAME)_SOURCES  := bsp/entry.c
+$(NAME)_SOURCES  += bsp/heap_iram.c
 $(NAME)_SOURCES  += bsp/syscall.c
 $(NAME)_SOURCES  += bsp/conn.c
 $(NAME)_SOURCES  += bsp/key.c

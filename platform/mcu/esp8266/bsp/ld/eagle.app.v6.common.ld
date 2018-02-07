@@ -148,7 +148,14 @@ SECTIONS
 	*netmgr.a:(.rodata.* .rodata)
 	*alink.a:(.rodata.* .rodata)
 	*libalicrypto.a:(.rodata.* .rodata)
+	*alicrypto.a:(.rodata.* .rodata)
 	*libmbedcrypto.a:(.rodata.* .rodata)
+	*ywss4linkkit.a:(.rodata.* .rodata)
+	*linkkitapp.a:(.rodata.* .rodata)
+	*link-coap.a:(.rodata.* .rodata)
+	*mqtt.a:(.rodata.* .rodata)
+	*fota_mqtt_transport.a:(.rodata.* .rodata)
+	*alink-ilop.a:(.rodata.* .rodata)
     _irom0_text_end = ABSOLUTE(.);
   } >irom0_0_seg :irom0_0_phdr
 
