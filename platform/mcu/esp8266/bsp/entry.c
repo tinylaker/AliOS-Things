@@ -120,3 +120,20 @@ void wifi_nmi_post_soft_isr(void)
 {
     PendSV(2);
 }
+
+static int ex_buf[1024] __attribute__((aligned(4)));
+
+void *ex_malloc(size_t n)
+{
+    return ex_buf;
+}
+
+void ex_free(void *ptr)
+{
+
+}
+
+void ex_sniffer_cb(void *ptr)
+{
+    
+}
