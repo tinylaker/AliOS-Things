@@ -705,6 +705,20 @@ static int wlan_send_80211_raw_frame(hal_wifi_module_t *m, uint8_t *buf, int len
     return 0;
 }
 
+static size_t sniffer_buf_len(struct sniffer_buf *buf)
+{
+    if (buf->rx_ctrl.sig_mode
+        && (buf->rx_ctrl.CWB == 1 
+            || buf->rx_ctrl.MCS > 7
+            || buf->rx_ctrl.FEC_CODING)) {
+        return sizeof(struct RxControl);
+    } else if (!(buf->buf[0] & 15)) {
+        return sizeof(struct sniffer_buf2);
+    } else {
+        return sizeof(struct sniffer_buf) + 10 + buf->cnt - 1;
+    }
+}
+
 hal_wifi_module_t aos_wifi_esp8266 = {
     .base.name           = "aos_wifi_esp8266",
     .init                =  wifi_init,
